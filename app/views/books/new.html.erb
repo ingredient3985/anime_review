@@ -1,0 +1,16 @@
+<h1>新規追加</h1>
+<%= form_with model:@book,local:true do |f|%>
+<div class="form-group">
+<label>タイトル</label>
+<%= f.text_field :title ,class:"form-control"%>
+</div>
+<div class="form-group">
+<label>点数(100点満点中)</label>
+<%= f.number_field :review ,class:"form-control"%>
+</div>
+<div class="form-group">
+<label>本文</label>
+<%= f.text_area :content ,class:"form-control",rows:20 %>
+</div>
+<%= f.submit "投稿" ,class:"btn btn-primary"%>
+<% end %>

@@ -1,0 +1,32 @@
+<h1>アニメ感想一覧</h1>
+<div class="card">
+<div class="card-body">
+<%= form_with method:"get",local:true do |f| %>
+<div class="form-row">
+<div class="col">
+<%= f.text_field "title",placeholder:"タイトルを入力",class:"form-control"%>
+</div>
+<div class="col">
+<%= f.submit "検索" ,class:"btn btn-primary"%>
+</div>
+</div>
+<% end %>
+</div>
+</div>
+<%= link_to "新規投稿" ,new_book_path,class:"btn btn-success"%>
+<table class="table table-striped">
+<tr>
+<th>タイトル</th>
+<th>評価(100点満点中)</th>
+<th>感想・考察など</th>
+</tr>
+<% @books.each do |book| %>
+<tr>
+<td><%= book.title %></td>
+<td><%= book.review %>点</td>
+<td><%= link_to "詳細", book_path(book) ,class:"btn btn-info"%>
+
+</td>
+</tr>
+<% end %>
+</table>
